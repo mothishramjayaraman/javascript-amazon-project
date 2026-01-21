@@ -53,7 +53,7 @@ products.forEach((elements) => {
               <div class="product-rating-count link-primary">${elements.rating.count}</div>
             </div>
 
-            <div class="product-price"> $ ${elements.priceCents}</div>
+            <div class="product-price"> $ ${elements.priceCents /100}</div>
 
             <div class="product-quantity-container">
               <select>
@@ -77,9 +77,15 @@ products.forEach((elements) => {
               Added
             </div>
 
-            <button class="add-to-cart-button button-primary">Add to Cart</button>
+            <button class="add-to-cart-button button-primary  js-add-to-cart-button">Add to Cart</button>
           </div>
   
     `;
 });
 document.querySelector(".js-products-grid").innerHTML = productHTML;
+
+document.querySelectorAll(".js-add-to-cart-button").forEach((button) => {
+  button.addEventListener("click", () => {
+    console.log("hello ");
+  });
+});
