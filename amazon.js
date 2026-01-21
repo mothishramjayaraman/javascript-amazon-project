@@ -53,7 +53,7 @@ products.forEach((elements) => {
               <div class="product-rating-count link-primary">${elements.rating.count}</div>
             </div>
 
-            <div class="product-price"> $ ${elements.priceCents /100}</div>
+            <div class="product-price"> $ ${elements.priceCents / 100}</div>
 
             <div class="product-quantity-container">
               <select>
@@ -87,5 +87,9 @@ document.querySelector(".js-products-grid").innerHTML = productHTML;
 document.querySelectorAll(".js-add-to-cart-button").forEach((button) => {
   button.addEventListener("click", () => {
     console.log("hello ");
+
+    console.log(button);
+
+    console.log(cart);
   });
 });
