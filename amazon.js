@@ -77,26 +77,29 @@ products.forEach((elements) => {
               Added
             </div>
 
-            <button class="add-to-cart-button button-primary  js-add-to-cart-button" data-product-name="${elements.name}"  >Add to Cart</button>
+            <button class="add-to-cart-button button-primary  js-add-to-cart-button" data-product-id="${elements.id}"  >Add to Cart</button>
           </div>
   
     `;
 });
+
 document.querySelector(".js-products-grid").innerHTML = productHTML;
 
-document.querySelectorAll(".js-add-to-cart-button").forEach((button) => {
+let a = document.querySelectorAll(".js-add-to-cart-button");
+
+a.forEach((button) => {
   button.addEventListener("click", () => {
-    const productName = button.dataset.productName;
+    const productId = button.dataset.productId;
+    const existingItem = cart.find((item) => item.productId === productId);
 
-    cart.forEach((item) => {
-      if(item.productName ){
-        console.log("hai");
-
-    }
-    if (productHTML)
+    if (existingItem) {
+      existingItem.quantity++;
+    } else {
       cart.push({
-        productName,
+        productId,
         quantity: 1,
       });
+    }
+    console.log(cart);
   });
 });
